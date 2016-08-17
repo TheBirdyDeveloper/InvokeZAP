@@ -7,11 +7,6 @@
 	<property name="external.jars" value="./libs"/>
 	<property name="src.dir" value="${basedir}/src"/>
 
-	<taskdef> name="VulnerabilityAssessment" 
-		classname="org.zaproxy.clientapi.ant.AlertCheckTask" 
-		classpath="${external.jars}/zap-client-api.1.2.1-0.jar" 
-		</taskdef>
-	
 	
 		<target name="loadTestNG" depends="setClassPath">
 		<taskdef resource="testngtasks" classpath="${test.classpath}"/>
@@ -49,14 +44,5 @@
 	</testng>
 </target>	
 
-	
-	<VulnerabilityAssessment zapAddress="localhost" zapPort="8500" debug="true">
-	    <ignoreAlert alert="Cookie set without HttpOnly flag" />
-	    <ignoreAlert alert="X-Content-Type-Options header missing" />
-	    <ignoreAlert alert="X-Frame-Options header not set" />
-	    <ignoreAlert alert="Application Error disclosure" />
-	    <ignoreAlert alert="Cookie set without HttpOnly flag" />
-	    <ignoreAlert alert="Password Autocomplete in browser" />
-	</VulnerabilityAssessment>
 
 </project>	
