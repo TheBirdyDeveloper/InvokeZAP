@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="22639" started-at="2016-08-16T13:35:05Z" finished-at="2016-08-16T13:35:28Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="22639" started-at="2016-08-16T13:35:05Z" finished-at="2016-08-16T13:35:28Z">
+      <class name="Test.NewTest_ZAP">
+        <test-method status="PASS" signature="demarrageZap()[pri:0, instance:Test.NewTest_ZAP@47f37ef1]" name="demarrageZap" duration-ms="9" started-at="2016-08-16T14:35:05Z" finished-at="2016-08-16T14:35:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demarrageZap -->
+        <test-method status="PASS" signature="lancementSelenium()[pri:2, instance:Test.NewTest_ZAP@47f37ef1]" name="lancementSelenium" duration-ms="16083" started-at="2016-08-16T14:35:05Z" finished-at="2016-08-16T14:35:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- lancementSelenium -->
+        <test-method status="PASS" signature="generationReport()[pri:3, instance:Test.NewTest_ZAP@47f37ef1]" name="generationReport" duration-ms="6538" started-at="2016-08-16T14:35:21Z" finished-at="2016-08-16T14:35:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generationReport -->
+      </class> <!-- Test.NewTest_ZAP -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

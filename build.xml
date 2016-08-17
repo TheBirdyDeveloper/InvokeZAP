@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<project name="InvokeZap" basedir="." xmlns:sonar="antlib:org.sonar.ant">
+	<property name="ANT_CLASSPATH" value="libs" />
+	<property name="build.dir" value="${basedir}/build"/>
+	<property name="external.jars" value="./libs"/>
+	<property name="src.dir" value="${basedir}/src"/>
+
+	<taskdef> name="VulnerabilityAssessment" 
+		classname="org.zaproxy.clientapi.ant.AlertCheckTask" 
+		classpath="${external.jars}/zap-client-api.1.2.1-0.jar" 
+		</taskdef>
+	
+	
+		<target name="loadTestNG" depends="setClassPath">
+		<taskdef resource="testngtasks" classpath="${test.classpath}"/>
+	</target>	
+	
+<target name="setClassPath">
+	<echo message="setting class path..."/>
+	 <path id="classpath_jars">
+		<pathelement path="${basedir}/"/>
+			<fileset dir="${external.jars}" includes="*.jar"/>
+     </path>
+  	 <pathconvert pathsep=";" property="test.classpath" refid="classpath_jars"/>
+</target>
+	
+<target name="clean">
+    <echo message="deleting existing build directory..."/>
+		 <delete dir="${build.dir}"/>
+</target>
+
+<target name="compile" depends="clean,setClassPath,loadTestNG">
+	<echo message="classpath:${test.classpath}"/>
+	<echo message="compiling.........."/>
+	<mkdir dir="${build.dir}"/>
+	<echo message="classpath:${test.classpath}"/>
+	<echo message="compiling.........."/>
+	
+ 	<javac destdir="${build.dir}" srcdir="${src.dir}">
+       <classpath refid="classpath_jars"/>
+	</javac>
+</target>
+	
+<target name="NewTest_ZAP.java" depends="compile">
+	<testng classpath="${test.classpath};${build.dir}">
+         <xmlfileset dir="${basedir}" includes="testng.xml"/>
+	</testng>
+</target>	
+
+	
+	<VulnerabilityAssessment zapAddress="localhost" zapPort="8500" debug="true">
+	    <ignoreAlert alert="Cookie set without HttpOnly flag" />
+	    <ignoreAlert alert="X-Content-Type-Options header missing" />
+	    <ignoreAlert alert="X-Frame-Options header not set" />
+	    <ignoreAlert alert="Application Error disclosure" />
+	    <ignoreAlert alert="Cookie set without HttpOnly flag" />
+	    <ignoreAlert alert="Password Autocomplete in browser" />
+	</VulnerabilityAssessment>
+
+</project>	
