@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import JSandXML.JSONObject;
+import JSandXML.XML;
 import br.com.softplan.security.zap.zaproxy.clientapi.core.ApiResponse;
 import br.com.softplan.security.zap.zaproxy.clientapi.core.ApiResponseElement;
 import br.com.softplan.security.zap.zaproxy.clientapi.core.ClientApi;
@@ -100,11 +102,11 @@ public class Zap {
             Thread.sleep(1000);
             responseValue = extractResponse(api.pscan.recordsToScan());
         }
-        String str = new String(api.core.htmlreport("1214"));
-
+        String str = new String(api.core.xmlreport("1214"));
+        JSONObject xmlJSONObj = XML.toJSONObject(str);
+        System.out.println(xmlJSONObj.toString());
         Date date = new Date();
         String dt = new SimpleDateFormat("dd-kk-mm").format(date);
-
         PrintWriter out = new PrintWriter(
                 "C:/Users/ssinquin/Desktop/testZap/ReportForSpiderWithActiveScan-" + dt + ".html");
         out.println(str);
