@@ -108,7 +108,7 @@ public class Zap {
         Date date = new Date();
         String dt = new SimpleDateFormat("dd-kk-mm").format(date);
         PrintWriter out = new PrintWriter(
-                "C:/Users/ssinquin/Desktop/testZap/ReportForSpiderWithActiveScan-" + dt + ".html");
+                "C:/Users/ssinquin/Desktop/testZap/ReportForSpiderWithActiveScan-" + dt + ".xml");
         out.println(str);
         out.close();
         System.out.println("Rapport ReportForSpiderWithActiveScan-" + dt + " genere avec succes");
