@@ -5,7 +5,7 @@
     <classes>
       <class name="Test.NewTest_ZAP">
         <methods>
-          <include name="lancementSelenium"/>
+          <include name="generationReport"/>
         </methods>
       </class> <!-- Test.NewTest_ZAP -->
     </classes>
