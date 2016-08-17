@@ -16,7 +16,7 @@
 	
 	<script> var app = angular.module('httpApp', []);
 app.controller('httpController', function ($scope, $http) {
-  $http.get("Sitemap.xml",
+  $http.get("ReportForSpiderWithActiveScan-17-11-07.xml",
             {
     transformResponse: function (cnv) {
       var x2js = new X2JS();
