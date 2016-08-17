@@ -16,7 +16,7 @@ import br.com.softplan.security.zap.zaproxy.clientapi.core.ClientApi;
 import br.com.softplan.security.zap.zaproxy.clientapi.core.ClientApiException;
 
 public class Zap {
-
+    // test commit
     private String URL = "localhost";
     private int Port = 8500;
     private ClientApi api;
